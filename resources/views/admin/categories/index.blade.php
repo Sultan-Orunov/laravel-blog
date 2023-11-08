@@ -43,7 +43,7 @@
                                 <td class="w-auto">
                                     <div class="d-flex justify-content-around align-content-center">
                                         <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-info">Редактировать</a>
-                                        <form action="" method="post">
+                                        <form action="{{ route('admin.categories.destroy', $category->id) }}" method="post">
                                             @csrf @method('delete')
                                             <button type="submit" class="btn btn-danger">Удалить</button>
                                         </form>
