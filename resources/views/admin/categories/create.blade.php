@@ -27,9 +27,10 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <form action="" method="post">
+                        <form action="{{ route('admin.categories.store') }}" method="post">
+                            @csrf
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" id="add" placeholder="Название категории...">
+                                <input type="text" class="form-control" id="add" name="title" placeholder="Название категории...">
                             </div>
                             <input type="submit" class="btn btn-info" value="Добавить">
                         </form>
