@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin'], function (){
 
     Route::group(['prefix' => 'categories'], function (){
         Route::get('/', \App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.categories.index');
+        Route::get('/create', \App\Http\Controllers\Admin\Category\CreateController::class)->name('admin.categories.create');
     });
 });
 

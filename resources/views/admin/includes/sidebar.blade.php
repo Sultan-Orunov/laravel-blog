@@ -13,12 +13,27 @@
             data-accordion="false">
 
             <li class="nav-item">
-                <a href="{{ route('admin.categories.index') }}" class="nav-link">
+                <a href="" class="nav-link">
                     <i class="nav-icon fa fa-list"></i>
                     <p>
                         Категории
+                        <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.categories.index') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Показать Все</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.categories.create') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Добавить</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
         </ul>
