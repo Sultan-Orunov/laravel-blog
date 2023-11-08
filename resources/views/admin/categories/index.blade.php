@@ -25,9 +25,36 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-12">
-                        category
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <table class="table table-bordered table-hover text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Категория</th>
+                                <th>Действия</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($categories as $category)
+                            <tr>
+                                <td>{{ $category->id }}</td>
+                                <td class="w-50">{{ $category->title }}</td>
+                                <td class="w-auto">
+                                    <div class="d-flex justify-content-around align-content-center">
+                                        <a href="{{ route('admin.categories.edit', $category->id) }}" class="btn btn-info">Редактировать</a>
+                                        <form action="" method="post">
+                                            @csrf @method('delete')
+                                            <button type="submit" class="btn btn-danger">Удалить</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
+                    <div class="col-3"></div>
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
