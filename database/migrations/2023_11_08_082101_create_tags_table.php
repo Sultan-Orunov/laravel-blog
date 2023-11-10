@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->index()->constrained('categories');
             $table->string('title');
             $table->timestamps();
             $table->softDeletes();

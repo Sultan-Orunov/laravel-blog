@@ -6,22 +6,13 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6 d-flex align-items-baseline">
-                        <h1 class="m-0">Категория</h1>
-                        <div class="d-flex justify-content-around align-content-center ml-3">
-                            <a href="{{ route('admin.categories.show', $category->id) }}" class="text-info"><i class="fa fa-eye"></i></a>
-                            <a href="{{ route('admin.categories.edit', $category->id) }}" class="ml-3 text-success"><i class="fa fa-pen"></i></a>
-                            <form action="{{ route('admin.categories.destroy', $category->id) }}" method="post">
-                                @csrf @method('delete')
-                                <button type="submit" class="border-0 bg-transparent ml-3 text-danger"><i class="fa fa-trash"></i></button>
-                            </form>
-                        </div>
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Тэги</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
-                            <li class="breadcrumb-item active">Show</li>
+                            <li class="breadcrumb-item active">Tags</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -37,15 +28,30 @@
                     <div class="col-3"></div>
                     <div class="col-6">
                         <table class="table table-bordered table-hover text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Тэги</th>
+                                <th>Действия</th>
+                            </tr>
+                            </thead>
                             <tbody>
+                            @foreach($tags as $tag)
                             <tr>
-                                <td><strong>ID</strong></td>
-                                <td class="w-50">{{ $category->id }}</td>
+                                <td>{{ $tag->id }}</td>
+                                <td class="w-50">{{ $tag->title }}</td>
+                                <td class="w-auto">
+                                    <div class="d-flex justify-content-around align-content-center">
+                                        <a href="{{ route('admin.tags.show', $tag->id) }}" class="text-info"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('admin.tags.edit', $tag->id) }}" class="text-success"><i class="fa fa-pen"></i></a>
+                                        <form action="{{ route('admin.tags.destroy', $tag->id) }}" method="post">
+                                            @csrf @method('delete')
+                                            <button type="submit" class="border-0 bg-transparent text-danger"><i class="fa fa-trash"></i></button>
+                                        </form>
+                                    </div>
+                                </td>
                             </tr>
-                            <tr>
-                                <td><strong>Категория</strong></td>
-                                <td class="w-50">{{ $category->title }}</td>
-                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
