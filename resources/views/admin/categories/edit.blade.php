@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление категории</h1>
+                        <h1 class="m-0">Редактирование категории</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -29,11 +29,11 @@
                     <div class="col-12">
                         <form action="{{ route('admin.categories.update', $category->id) }}" method="post">
                             @csrf
-                            @method('patch')
+                            @method('PATCH')
                             <div class="form-group w-25">
-                                <input type="text" class="form-control" name="title" value="{{ $category->title }}" placeholder="Название категории...">
+                                <input type="text" class="form-control" id="add" name="title" value="{{ $category->title }}" placeholder="Название категории...">
                             </div>
-                            <input type="submit" class="btn btn-info" value="Редактировать">
+                            <input type="submit" class="btn btn-info" value="Обновить">
                         </form>
                     </div>
                     <!-- ./col -->
