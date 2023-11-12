@@ -14,6 +14,30 @@
 
             <li class="nav-item">
                 <a href="" class="nav-link">
+                    <i class="nav-icon fa fa-clipboard"></i>
+                    <p>
+                        Статьи
+                        <i class="fas fa-angle-left right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.posts.index') }}" class="nav-link">
+                            <i class="fas fa-angle-right nav-icon"></i>
+                            <p>Показать Все</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.posts.create') }}" class="nav-link">
+                            <i class="fas fa-angle-right nav-icon"></i>
+                            <p>Добавить</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a href="" class="nav-link">
                     <i class="nav-icon fa fa-list"></i>
                     <p>
                         Категории
@@ -38,7 +62,7 @@
 
             <li class="nav-item">
                 <a href="" class="nav-link">
-                    <i class="nav-icon fa fa-pen-square"></i>
+                    <i class="nav-icon fa fa-tags"></i>
                     <p>
                         Тэги
                         <i class="fas fa-angle-left right"></i>

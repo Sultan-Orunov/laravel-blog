@@ -20,6 +20,15 @@ Route::get('/', IndexController::class)->name('main.index');
 Route::group(['prefix' => 'admin'], function (){
     Route::get('/', \App\Http\Controllers\Admin\Main\IndexController::class)->name('admin.index');
 
+    Route::group(['prefix' => 'posts'], function (){
+        Route::get('/', \App\Http\Controllers\Admin\Post\IndexController::class)->name('admin.posts.index');
+        Route::get('/create', \App\Http\Controllers\Admin\Post\CreateController::class)->name('admin.posts.create');
+        Route::post('/', \App\Http\Controllers\Admin\Post\StoreController::class)->name('admin.posts.store');
+        Route::get('/{post}', \App\Http\Controllers\Admin\Post\ShowController::class)->name('admin.posts.show');
+        Route::get('/{post}/edit', \App\Http\Controllers\Admin\Post\EditController::class)->name('admin.posts.edit');
+        Route::patch('/{post}', \App\Http\Controllers\Admin\Post\UpdateController::class)->name('admin.posts.update');
+        Route::delete('/{post}', \App\Http\Controllers\Admin\Post\DestroyController::class)->name('admin.posts.destroy');
+    });
     Route::group(['prefix' => 'categories'], function (){
         Route::get('/', \App\Http\Controllers\Admin\Category\IndexController::class)->name('admin.categories.index');
         Route::get('/create', \App\Http\Controllers\Admin\Category\CreateController::class)->name('admin.categories.create');
