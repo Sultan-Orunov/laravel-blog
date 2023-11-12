@@ -46,10 +46,6 @@
                                 <td><strong>Заголовок</strong></td>
                                 <td class="w-50">{{ $post->title }}</td>
                             </tr>
-                            <tr>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi architecto atque deserunt eligendi eos et, eveniet minus nam non obcaecati possimus quos reprehenderit rerum sequi soluta tenetur totam, vitae?</td>
-                                <td class="w-50">{{ $post->title }}</td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
