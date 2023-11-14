@@ -34,22 +34,36 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-6">
+                    <div class="col-12">
                         <table class="table table-bordered table-hover text-nowrap">
                             <tbody>
                             <tr>
                                 <td><strong>ID</strong></td>
-                                <td class="w-50">{{ $post->id }}</td>
+                                <td class="w-100">{{ $post->id }}</td>
                             </tr>
                             <tr>
                                 <td><strong>Заголовок</strong></td>
-                                <td class="w-50">{{ $post->title }}</td>
+                                <td class="w-100">{{ $post->title }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Превью</strong></td>
+                                <td class="w-100">
+                                    <img class="w-25" src="{{ url('storage/'.$post->preview_image) }}" alt="Preview Image">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Главное изображение</strong></td>
+                                <td class="w-100">
+                                    <img class="w-50" src="{{ url('storage/'.$post->main_image) }}" alt="Preview Image">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Контент</strong></td>
+                                <td class="w-100">{!! $post->content !!}</td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-3"></div>
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
