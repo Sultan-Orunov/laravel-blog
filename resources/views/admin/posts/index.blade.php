@@ -25,9 +25,8 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-6">
-                        <table class="table table-bordered table-hover text-nowrap">
+                    <div class="col-12">
+                        <table class="table table-bordered table-hover ">
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -40,9 +39,9 @@
                             @foreach($posts as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
-                                <td class="w-50">{{ $post->title }}</td>
-                                <td class="w-50">Тело Статьи</td>
-                                <td class="w-auto">
+                                <td class="w-25">{{ $post->title }}</td>
+                                <td class="w-50">{!! $post->content !!}</td>
+                                <td>
                                     <div class="d-flex justify-content-around align-content-center">
                                         <a href="{{ route('admin.posts.show', $post->id) }}" class="text-info"><i class="fa fa-eye"></i></a>
                                         <a href="{{ route('admin.posts.edit', $post->id) }}" class="text-success"><i class="fa fa-pen"></i></a>
@@ -57,7 +56,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-3"></div>
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
