@@ -43,16 +43,17 @@
                                     <div class="custom-file">
                                         <input name="preview_image" value="{{ old('preview_image') }}" type="file"
                                                class="custom-file-input" id="previewImage">
-                                        <label class="custom-file-label" for="previewImage">Выберите превью изображение</label>
+                                        <label class="custom-file-label" for="previewImage">Выберите превью
+                                            изображение</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Загрузка</span>
                                     </div>
                                 </div>
                                 @error('preview_image')
-                                    <div class="text-danger">
-                                        {{ $message }}
-                                    </div>
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -60,23 +61,39 @@
                                     <div class="custom-file">
                                         <input name="main_image" value="{{ old('main_image') }}" type="file"
                                                class="custom-file-input" id="mainImage">
-                                        <label class="custom-file-label" for="mainImage">Выберите главное изображение</label>
+                                        <label class="custom-file-label" for="mainImage">Выберите главное
+                                            изображение</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Загрузка</span>
                                     </div>
                                 </div>
                                 @error('main_image')
-                                    <div class="text-danger">
-                                        {{ $message }}
-                                    </div>
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
                                 @enderror
+                            </div>
+                            <div class="form-group w-50">
+                                <label>Выберите Категорию</label>
+                                <select name="category_id" class="form-control">
+                                    @foreach($categories as $category)
+                                        <option
+                                            {{ $category->id == old('category_id') ? ' selected' : '' }}
+                                            value="{{ $category->id }}">{{ $category->title }}</option>
+                                    @endforeach
+                                </select>
+                                    @error('category_id')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                             </div>
                             <div class="form-group">
                                 <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                                 @error('content')
-                                    <div class="text-danger">
-                                        {{$message}}
+                                <div class="text-danger">
+                                    {{$message}}
                                     </div>
                                 @enderror
                             </div>
