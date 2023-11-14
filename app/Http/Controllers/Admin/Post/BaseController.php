@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
-use App\Services\PostService;
+use App\Services\PostServices;
 
 class BaseController extends Controller
 {
     public $service;
 
-    public function __construct(PostService $service)
+    public function __construct(PostServices $service)
     {
         $this->service = $service;
     }
