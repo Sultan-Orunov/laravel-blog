@@ -21,9 +21,12 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:users,email,'. $this->user_id,
+            'user_id' => 'required|integer|exists:users,id',
+            'role' => 'required|integer'
         ];
     }
 
@@ -35,6 +38,10 @@ class UpdateRequest extends FormRequest
             'email.required' => 'Это поле обязательно для заполнения',
             'email.email' => 'Не корректный адрес электронной почты',
             'email.unique' => 'Этот адрес электронной почты уже используется',
+            'role.required' => 'Это поле обязательно для заполнения',
+            'role.integer' => 'Это поле может содержать только цифры',
+            'user_id.required' => 'Это поле обязательно для заполнения',
+            'user_id.integer' => 'Это поле может содержать только цифры',
         ];
     }
 }

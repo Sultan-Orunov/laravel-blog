@@ -46,6 +46,21 @@
                                 @enderror
                             </div>
                             <div class="form-group w-25">
+                                <label>Выберите Роль</label>
+                                <select name="role" class="form-control">
+                                    @foreach($roles as $id => $role)
+                                        <option
+                                            {{ $id == old('role') ? ' selected' : '' }}
+                                            value="{{ $id }}">{{ $role }}</option>
+                                    @endforeach
+                                </select>
+                                @error('role')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group w-25">
                                 <input type="text" class="form-control" name="password" placeholder="Пароль...">
                                 @error('password')
                                 <div class="text-danger">
