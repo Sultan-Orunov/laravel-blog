@@ -47,6 +47,15 @@ Route::group(['prefix' => 'admin'], function (){
         Route::patch('/{tag}', \App\Http\Controllers\Admin\Tag\UpdateController::class)->name('admin.tags.update');
         Route::delete('/{tag}', \App\Http\Controllers\Admin\Tag\DestroyController::class)->name('admin.tags.destroy');
     });
+    Route::group(['prefix' => 'users'], function (){
+        Route::get('/', \App\Http\Controllers\Admin\User\IndexController::class)->name('admin.users.index');
+        Route::get('/create', \App\Http\Controllers\Admin\User\CreateController::class)->name('admin.users.create');
+        Route::post('/', \App\Http\Controllers\Admin\User\StoreController::class)->name('admin.users.store');
+        Route::get('/{user}', \App\Http\Controllers\Admin\User\ShowController::class)->name('admin.users.show');
+        Route::get('/{user}/edit', \App\Http\Controllers\Admin\User\EditController::class)->name('admin.users.edit');
+        Route::patch('/{user}', \App\Http\Controllers\Admin\User\UpdateController::class)->name('admin.users.update');
+        Route::delete('/{user}', \App\Http\Controllers\Admin\User\DestroyController::class)->name('admin.users.destroy');
+    });
 });
 
 
