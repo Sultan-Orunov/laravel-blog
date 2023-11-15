@@ -25,13 +25,13 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-6">
+                    <div class="col-12">
                         <table class="table table-bordered table-hover text-nowrap">
                             <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Имя</th>
+                                <th>Email</th>
                                 <th>Действия</th>
                             </tr>
                             </thead>
@@ -39,8 +39,9 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
-                                <td class="w-50">{{ $user->name }}</td>
-                                <td class="w-auto">
+                                <td>{{ $user->name }}</td>
+                                <td class="w-50">{{ $user->email }}</td>
+                                <td>
                                     <div class="d-flex justify-content-around align-content-center">
                                         <a href="{{ route('admin.users.show', $user->id) }}" class="text-info"><i class="fa fa-eye"></i></a>
                                         <a href="{{ route('admin.users.edit', $user->id) }}" class="text-success"><i class="fa fa-pen"></i></a>
@@ -55,7 +56,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-3"></div>
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->

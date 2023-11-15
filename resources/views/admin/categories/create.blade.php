@@ -31,6 +31,11 @@
                             @csrf
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" id="add" name="title" placeholder="Название категории...">
+                                @error('title')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <input type="submit" class="btn btn-info" value="Добавить">
                         </form>

@@ -22,7 +22,19 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string'
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Это поле обязательно для заполнения',
+            'name.string' => 'Данные должны соответствовать строке',
+            'email.required' => 'Это поле обязательно для заполнения',
+            'email.email' => 'Не корректный адрес электронной почты',
+            'email.unique' => 'Этот адрес электронной почты уже используется',
         ];
     }
 }
