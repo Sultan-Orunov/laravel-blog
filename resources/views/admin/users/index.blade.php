@@ -11,8 +11,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Uses</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+                            <li class="breadcrumb-item active">Пользователи</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -32,6 +32,7 @@
                                 <th>ID</th>
                                 <th>Имя</th>
                                 <th>Email</th>
+                                <th>Role</th>
                                 <th>Действия</th>
                             </tr>
                             </thead>
@@ -40,7 +41,12 @@
                             <tr>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
-                                <td class="w-50">{{ $user->email }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>
+                                    @if(array_key_exists($user->role, \App\Models\User::getRole()))
+                                        {{ \App\Models\User::getRole()[$user->role] }}
+                                    @endif
+                                </td>
                                 <td>
                                     <div class="d-flex justify-content-around align-content-center">
                                         <a href="{{ route('admin.users.show', $user->id) }}" class="text-info"><i class="fa fa-eye"></i></a>

@@ -11,9 +11,9 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.tags.index') }}">Tags</a></li>
-                            <li class="breadcrumb-item active">Create</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.tags.index') }}">Тэги</a></li>
+                            <li class="breadcrumb-item active">Добавление</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->

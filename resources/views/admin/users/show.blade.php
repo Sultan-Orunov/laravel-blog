@@ -19,9 +19,9 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Users</a></li>
-                            <li class="breadcrumb-item active">Show</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Пользователи</a></li>
+                            <li class="breadcrumb-item active">{{ $user->name }}</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -43,8 +43,16 @@
                                 <td class="w-50">{{ $user->id }}</td>
                             </tr>
                             <tr>
-                                <td><strong>Категория</strong></td>
+                                <td><strong>Имя</strong></td>
                                 <td class="w-50">{{ $user->name }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Email</strong></td>
+                                <td class="w-50">{{ $user->email }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Роль</strong></td>
+                                <td class="w-50">{{ \App\Models\User::getRole()[$user->role] }}</td>
                             </tr>
                             </tbody>
                         </table>
