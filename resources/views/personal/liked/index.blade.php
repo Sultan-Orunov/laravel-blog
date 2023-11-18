@@ -42,7 +42,7 @@
                                     <td>
                                         <div class="d-flex justify-content-around align-content-center">
                                             <a href="" class="text-info"><i class="fa fa-eye"></i></a>
-                                            <form action="{{ route('personal.liked.delete', $post->id ) }}" method="post">
+                                            <form action="{{ route('personal.liked.delete', $post->id) }}" method="post">
                                                 @csrf @method('delete')
                                                 <button type="submit" class="border-0 bg-transparent text-danger"><i class="fa fa-trash"></i></button>
                                             </form>

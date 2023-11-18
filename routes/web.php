@@ -23,7 +23,13 @@ Route::group(['prefix' => 'personal', 'middleware' => ['auth', 'verified']], fun
         Route::get('/', \App\Http\Controllers\Personal\Liked\IndexController::class)->name('personal.liked.index');
         Route::delete('/{post}', \App\Http\Controllers\Personal\Liked\DeleteController::class)->name('personal.liked.delete');
     });
-    Route::get('/comment', \App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
+    Route::group(['prefix'=> 'comment'], function (){
+        Route::get('/', \App\Http\Controllers\Personal\Comment\IndexController::class)->name('personal.comment.index');
+        Route::get('/{comment}', \App\Http\Controllers\Personal\Comment\EditController::class)->name('personal.comment.edit');
+        Route::patch('/{comment}edit', \App\Http\Controllers\Personal\Comment\UpdateController::class)->name('personal.comment.update');
+        Route::delete('/{comment}', \App\Http\Controllers\Personal\Comment\DeleteController::class)->name('personal.comment.delete');
+
+    });
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function (){

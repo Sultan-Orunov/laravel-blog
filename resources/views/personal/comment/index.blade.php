@@ -38,11 +38,11 @@
                             @foreach($comments as $comment)
                                 <tr>
                                     <td>{{ $comment->id }}</td>
-                                    <td class="w-25">{{ $comment->message }}</td>
+                                    <td class="w-75">{{ $comment->message }}</td>
                                     <td>
                                         <div class="d-flex justify-content-around align-content-center">
-                                            <a href="" class="text-info"><i class="fa fa-eye"></i></a>
-                                            <form action="" method="post">
+                                            <a href="{{ route('personal.comment.edit', $comment->id) }}" class="text-info"><i class="fa fa-eye"></i></a>
+                                            <form action="{{ route('personal.comment.delete', $comment->id) }}" method="post">
                                                 @csrf @method('delete')
                                                 <button type="submit" class="border-0 bg-transparent text-danger"><i class="fa fa-trash"></i></button>
                                             </form>
