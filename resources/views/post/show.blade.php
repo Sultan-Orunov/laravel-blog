@@ -31,7 +31,22 @@
                             @endforeach
                         </div>
                     </section>
+                    <div class="mb-3">
+                        @foreach($post->comments as $comment)
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">{{ $comment->user->name }}</h5>
+                                    <h6>{{ $comment->DateAsCarbon->diffForHumans() }}</h6>
+                                </div>
+                                <p class="card-text">{{ $comment->message }}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
                     <section class="comment-section">
+                        @auth()
                         <h2 class="section-title mb-5" data-aos="fade-up">Отпраить коментарий</h2>
                         <form action="{{ route('post.comment.store', $post->id) }}" method="post">
                             @csrf
@@ -47,7 +62,9 @@
                                 </div>
                             </div>
                         </form>
+                        @endauth
                     </section>
+
                 </div>
             </div>
         </div>
